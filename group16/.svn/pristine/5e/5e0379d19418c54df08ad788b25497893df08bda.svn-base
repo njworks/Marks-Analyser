@@ -1,0 +1,88 @@
+import javax.swing.*;
+import javax.swing.table.TableColumn;
+import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.*;
+
+/**
+ * Created by njosepa on 23/01/2017.
+ */
+public class Data extends JPanel {
+
+    private static String[] columnNames = {"Rank", "Module Name"};
+    private static Object[][] data = new Object[Weight.finalWeighting.size()][2];
+    private static JTable table = new JTable(data, columnNames);
+
+
+    public static void frame() {
+        JFrame f = new JFrame("Test window");
+        f.setSize(700, 700);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+        f.setResizable(true);
+
+        /*
+        *creates a table to add the data
+        */
+        averageTable();
+
+        JPanel holdTable = new JPanel();
+        Container test = new Container();
+        test.setLayout(new BorderLayout());
+        test.add(table.getTableHeader(), BorderLayout.PAGE_START);
+        test.add(table, BorderLayout.CENTER);
+        holdTable.add(test);
+        f.add(holdTable);
+
+    }
+
+    /*
+    *Adds the values to the table
+    */
+    private static void averageTable() {
+        int order = 1;
+        int counter = 0;
+        for (Map.Entry<String, Integer> entry : Weight.finalWeighting.entrySet()) {
+            String key = entry.getKey();
+            data[counter][0] = order;
+            data[counter][1] = key;
+            counter++;
+            order++;
+        }
+
+//        Set set = Weight.finalWeighting.entrySet();
+//        Iterator i = set.iterator();
+//        int counter = 0;
+//        int order = 1;
+////        DecimalFormat twoDecimal = new DecimalFormat();
+// //       twoDecimal.setMaximumFractionDigits(2);
+//        while (i.hasNext()) {
+//            Map.Entry each = (Map.Entry) i.next();
+//            data[counter][0] = order;
+//            data[counter][1] = each.getValue();
+//      //      data[counter][2] = twoDecimal.format(each.getKey());
+//            counter++;
+//            order++;
+
+//        }
+
+//        TableColumn column = null;
+//        for (int n = 0; n < 2; n++) {
+//            column = table.getColumnModel().getColumn(n);
+//            if (n == 1) {
+//                column.setPreferredWidth(100); //third column is bigger
+//            } else if (n == 2) {
+//                column.setPreferredWidth(80);
+//            } else {
+//                column.setPreferredWidth(50);
+//            }
+//        }
+
+        table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
+    }
+
+}
+
+
+

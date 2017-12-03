@@ -1,0 +1,13 @@
+/*Created by tramch 1502020 on 27/02/2017*/
+
+/* set the color of the bars in the first series */
+.default-color0.chart-bar { -fx-bar-fill: #4b7a8b; }
+
+/* set the color of the slices in the pie chart */
+.data8.chart-pie { -fx-pie-color: #ff8ee9; }
+.data9.chart-pie { -fx-pie-color: #fff22b; }
+.data10.chart-pie { -fx-pie-color: #4fffd5; }
+.data11.chart-pie { -fx-pie-color: #9482ff; }
+.data12.chart-pie { -fx-pie-color: #6b3c62; }
+.data13.chart-pie { -fx-pie-color: #a0ff81; }
+.data14.chart-pie { -fx-pie-color: #cd4480; }

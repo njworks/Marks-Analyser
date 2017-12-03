@@ -1,0 +1,19 @@
+package notUsed;
+
+/**
+ * Created by njosepa on 26/01/2017.
+ */
+public class HelloWorld {
+    public static void main(String[] args){
+        System.out.println("Hello World");
+
+
+        System.out.println("Nelvin was here, 26/01/2017");
+        System.out.println("Luis was here, ..0/01/2017");
+        System.out.println("Matt was here, .../01/2017");
+        System.out.println("Chris was here, .../01/2017");
+        System.out.println("Tanya was here, 29/01/2017");
+        System.out.println("Nicolas was here,...30/01/2017");
+
+    }
+}

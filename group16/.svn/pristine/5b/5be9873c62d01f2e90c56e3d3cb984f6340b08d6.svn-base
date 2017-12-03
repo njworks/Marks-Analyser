@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by njosepa on 17/02/2017.
+ * contributed by tramch 1502020
+ */
+public class Run {
+
+    public static void main(String[] args) {
+        Import.fileRead();                          //Read CSV file
+        Modules.runAllMethods();                    //Modules Average
+
+        SwingUtilities.invokeLater(new Runnable() { //Graph creation
+            @Override
+            public void run() {
+                Bargraph.window();
+                Bargraph2.window();
+                Bargraph3.window();
+                Bargraph4.window();
+                Bargraph5.window();
+                PieCharts.window();
+            }
+        });
+
+        Weight.weighting();
+
+//        for (Map.Entry<Double, String> entry : Modules.secondAverage.entrySet()) {
+//            Double key = entry.getKey();
+//            String value = entry.getValue();
+//            System.out.println(key + " : "+ value);
+//        }
+
+        Data.frame();   //Table with module average
+
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    GUI frame = new GUI();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+
+}

@@ -1,0 +1,259 @@
+package notUsed;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.geom.*;
+
+@SuppressWarnings("serial")
+public class OldPie extends JPanel {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("PieGraph Example ");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.setBackground(Color.white);
+        frame.setSize(275, 525);
+
+        //PieGraph panel = new PieGraph();
+
+   //     frame.add(panel);
+
+        frame.setVisible(true);
+
+
+    }
+
+    public void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+
+        Arc2D.Float arc = new Arc2D.Float(Arc2D.PIE);
+        arc.setFrame(50, 10, 150, 150);
+        //ce101 ,ce141, ce142, ce151, ce152,
+        //ce153, ce154, ce155, ce161, ce162,
+        //ce163, ce164
+        double quantity101 = 233;
+        double quantity141 = 122;
+        double quantity142 = 171;
+        double quantity151 = 93;
+        double quantity152 = 300;
+        double quantity153 = 121;
+        double quantity154 = 45;
+        double quantity155 = 93;
+        double quantity161 = 234;
+        double quantity162 = 23;
+        double quantity163 = 57;
+        double quantity164 = 122;
+        double quantityTotal = quantity101 + quantity141 + quantity142 + quantity151 + quantity152 + quantity153 + quantity154 + quantity155 + quantity161 + quantity162 + quantity163 + quantity164;
+        double angle101 = (quantity101/quantityTotal)*360;
+        double angle141 = (quantity141/quantityTotal)*360;
+        double angle142 = (quantity142/quantityTotal)*360;
+        double angle151 = (quantity151/quantityTotal)*360;
+        double angle152 = (quantity152/quantityTotal)*360;
+        double angle153 = (quantity153/quantityTotal)*360;
+        double angle154 = (quantity154/quantityTotal)*360;
+        double angle155 = (quantity155/quantityTotal)*360;
+        double angle161 = (quantity161/quantityTotal)*360;
+        double angle162 = (quantity162/quantityTotal)*360;
+        double angle163 = (quantity163/quantityTotal)*360;
+        double angle164 = (quantity164/quantityTotal)*360;
+
+        arc.setAngleStart(0); //degree start point
+        arc.setAngleExtent(angle101); //degree size of the slice
+        g2.setColor(Color.blue); //colour of slice
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101);
+        arc.setAngleExtent(angle141);
+        g2.setColor(Color.green);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141);
+        arc.setAngleExtent(angle142);
+        g2.setColor(Color.yellow);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142);
+        arc.setAngleExtent(angle151);
+        g2.setColor(Color.pink);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151);
+        arc.setAngleExtent(angle152);
+        g2.setColor(Color.red);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152);
+        arc.setAngleExtent(angle153);
+        g2.setColor(Color.orange);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153);
+        arc.setAngleExtent(angle154);
+        g2.setColor(Color.cyan);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153+angle154);
+        arc.setAngleExtent(angle155);
+        g2.setColor(Color.darkGray);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153+angle154+angle155);
+        arc.setAngleExtent(angle161);
+        g2.setColor(Color.magenta);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153+angle154+angle155+angle161);
+        arc.setAngleExtent(angle162);
+        g2.setColor(Color.lightGray);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153+angle154+angle155+angle161+angle162);
+        arc.setAngleExtent(angle163);
+        g2.setColor(Color.black);
+        g2.fill(arc);
+
+        arc.setAngleStart(angle101+angle141+angle142+angle151+angle152+angle153+angle154+angle155+angle161+angle162+angle163);
+        arc.setAngleExtent(angle164);
+        g2.setColor(Color.gray);
+        g2.fill(arc);
+
+        String quantityT = String.format(" %.0f",quantityTotal);
+        g2.setColor(Color.lightGray);
+        g2.fillRect(5, 0, 45, 20);//colour fill of textbox
+        g2.fillRect(165, 155, 75, 20);
+        g2.setColor(Color.black);
+        g2.drawRect(19, 179, 221, 130);//outline of textbox
+        g2.drawRect(5, 0, 45, 20);
+        g2.drawRect(165, 155, 75, 20);
+        g2.drawString("First:", 15, 15);
+        g2.drawString("Total:", 170, 170);
+        g2.drawString(quantityT,200, 170);
+
+
+        g2.setColor(Color.blue);// key for 1st students
+        g2.fillRect(30,190,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE101", 40, 200);
+        g2.setColor(Color.green); //key for 2:1 students
+        g2.fillRect(130,190,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE141", 140, 200);
+        g2.setColor(Color.yellow); //key for 2:2 students
+        g2.fillRect(30,210,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE142", 40, 220);
+        g2.setColor(Color.pink); //key for pass students
+        g2.fillRect(130,210,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE151", 140, 220);
+        g2.setColor(Color.red); //key for fail students
+        g2.fillRect(30,230,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE152", 40, 240);
+        g2.setColor(Color.orange); //key for fail students
+        g2.fillRect(130,230,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE153", 140, 240);
+        g2.setColor(Color.cyan); //key for fail students
+        g2.fillRect(30,250,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE154", 40, 260);
+        g2.setColor(Color.darkGray); //key for fail students
+        g2.fillRect(130,250,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE155", 140, 260);
+        g2.setColor(Color.magenta); //key for fail students
+        g2.fillRect(30,270,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE161", 40, 280);
+        g2.setColor(Color.lightGray); //key for fail students
+        g2.fillRect(130,270,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE162", 140, 280);
+        g2.setColor(Color.black); //key for fail students
+        g2.fillRect(30,290,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE163", 40, 300);
+        g2.setColor(Color.gray); //key for fail students
+        g2.fillRect(130,290,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(" CE164", 140, 300);
+
+        // g2.setColor(Color.black);
+        // g2.drawRect(19, 259, 221, 71);//outline of textbox
+        // g2.setColor(Color.lightGray);
+        // g2.fillRect(20, 260, 220, 70);//colour fill of textbox
+        g2.setColor(Color.black);
+        g2.drawRect(19, 320, 221, 130);//outline of textbox
+
+        String a101 = String.format(" %.2f", (angle101/360)*100, "%");
+        String a141 = String.format(" %.2f", (angle141/360)*100, "%");
+        String a142 = String.format(" %.2f", (angle142/360)*100, "%");
+        String a151 = String.format(" %.2f", (angle151/360)*100, "%");
+        String a152 = String.format(" %.2f", (angle152/360)*100, "%");
+        String a153 = String.format(" %.2f", (angle153/360)*100, "%");
+        String a154 = String.format(" %.2f", (angle154/360)*100, "%");
+        String a155 = String.format(" %.2f", (angle155/360)*100, "%");
+        String a161 = String.format(" %.2f", (angle161/360)*100, "%");
+        String a162 = String.format(" %.2f", (angle162/360)*100, "%");
+        String a163 = String.format(" %.2f", (angle163/360)*100, "%");
+        String a164 = String.format(" %.2f", (angle164/360)*100, "%");
+
+        //ce101 ,ce141, ce142, ce151, ce152,
+        //ce153, ce154, ce155, ce161, ce162,
+        //ce163, ce164
+        g2.setColor(Color.blue);// key for 1st students
+        g2.fillRect(30,330,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a101, 40, 340);
+        g2.setColor(Color.green); //key for 2:1 students
+        g2.fillRect(130,330,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a141, 140, 340);
+        g2.setColor(Color.yellow); //key for 2:2 students
+        g2.fillRect(30,350,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a142, 40, 360);
+        g2.setColor(Color.pink); //key for pass students
+        g2.fillRect(130,350,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a151, 140, 360);
+        g2.setColor(Color.red); //key for fail students
+        g2.fillRect(30,370,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a152, 40, 380);
+        g2.setColor(Color.red); //key for fail students
+        g2.fillRect(30,370,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a152, 40, 380);
+        g2.setColor(Color.orange); //key for fail students
+        g2.fillRect(130,370,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a153, 140, 380);
+        g2.setColor(Color.cyan); //key for fail students
+        g2.fillRect(30,390,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a154, 40, 400);
+        g2.setColor(Color.darkGray); //key for fail students
+        g2.fillRect(130,390,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a155, 140, 400);
+        g2.setColor(Color.magenta); //key for fail students
+        g2.fillRect(30,410,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a161, 40, 420);
+        g2.setColor(Color.lightGray); //key for fail students
+        g2.fillRect(130,410,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a162, 140, 420);
+        g2.setColor(Color.black); //key for fail students
+        g2.fillRect(30,430,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a163, 40, 440);
+        g2.setColor(Color.gray); //key for fail students
+        g2.fillRect(130,430,10,10);
+        g2.setColor(Color.black);
+        g2.drawString(a164, 140, 440);
+
+    }
+}
+

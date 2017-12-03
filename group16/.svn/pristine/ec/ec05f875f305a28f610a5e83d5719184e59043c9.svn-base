@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
+
+/**
+ * Created by njosepa on 17/02/2017.
+ * contributed by tramch 1502020
+ */
+public class Run {
+
+    public static void main(String[] args) {
+
+        Import.fileRead();                          //Read CSV file
+        Modules.runAllMethods();                    //Modules Average
+
+        SwingUtilities.invokeLater(new Runnable() { //Graph creation
+            @Override
+            public void run() {
+//                Bargraph.window();
+//                Bargraph2.window();
+//                Bargraph3.window();
+//                Bargraph4.window();
+//                Bargraph5.window();
+                PieCharts.window();
+            }
+        });
+
+        Weight.weighting();
+
+
+
+        for (Map.Entry<String, Integer> entry : Weight.finalWeighting.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.println(key + " : "+ value);
+        }
+
+//        for (Map.Entry<Integer, String> entry : Weight.firstWeighting.entrySet()) {
+//            Integer key = entry.getKey();
+//            String value = entry.getValue();
+//            System.out.println("first: " + value + " : "+ key);
+//        }
+
+    Data.frame();       //Table with module average
+    }
+
+
+}

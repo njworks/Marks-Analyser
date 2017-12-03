@@ -1,0 +1,143 @@
+
+import javax.swing.*;
+import javax.swing.table.TableColumn;
+import java.awt.*;
+import java.util.Map;
+
+/**
+ * Created by njosepa on 23/01/2017.
+ * Contributed by cgray
+ */
+public class Data extends JPanel {
+
+    private static String[] columnNames = {"Rank", "Module Name"};
+    private static Object[][] data = new Object[15][2];
+    public static JTable table = new JTable(data, columnNames);
+    private static Object[][] dataSS = new Object[15][2];
+    private static JTable tableSS = new JTable(dataSS, columnNames);
+    private static Object[][] dataWS = new Object[15][2];
+    private static JTable tableWS = new JTable(dataWS, columnNames);
+
+    static Container test = new Container();
+    static Container StrongS = new Container();
+    static Container WeakS = new Container();
+
+    public static void frame() {
+        /*
+        *creates a table to add the data
+        */
+        averageTable();
+        StrongStudent();
+        WeakStudent();
+
+        test.setLayout(new BorderLayout());
+        test.add(table.getTableHeader(), BorderLayout.PAGE_START);
+        test.add(table, BorderLayout.CENTER);
+
+        StrongS.setLayout(new BorderLayout());
+        StrongS.add(tableSS.getTableHeader(), BorderLayout.PAGE_START);
+        StrongS.add(tableSS, BorderLayout.CENTER);
+
+
+        WeakS.setLayout(new BorderLayout());
+        WeakS.add(tableWS.getTableHeader(), BorderLayout.PAGE_START);
+        WeakS.add(tableWS, BorderLayout.CENTER);
+
+    }
+
+    /*
+    *Adds the values to the table
+    */
+    private static void averageTable() {
+        String hardest = "Hardest";
+        String easiest = "Easiest";
+        String dots = "       :    ";
+        int counter = 0;
+        data[0][0] = hardest;
+        for (Map.Entry<String, Integer> entry : Weight.finalWeighting.entrySet()) {
+            String key = entry.getKey();
+            if (counter >= 1) {
+                data[counter][0] = dots;
+            }
+            data[counter][1] = key;
+            counter++;
+        }
+        data[counter - 1][0] = easiest;
+
+        TableColumn column = null;
+        for (int n = 0; n < 2; n++) {
+            column = table.getColumnModel().getColumn(n);
+            if (n == 1) {
+                column.setPreferredWidth(300); //third column is bigger
+            } else if (n == 2) {
+                column.setPreferredWidth(300);
+            } else {
+                column.setPreferredWidth(300);
+            }
+        }
+        table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
+    }
+
+    private static void StrongStudent() {
+        String hardest = "Hardest";
+        String easiest = "Easiest";
+        String dots = "       :    ";
+        int counter = 0;
+        dataSS[0][0] = hardest;
+        for (Map.Entry<String, Integer> entry : Weight.finalFirstSecWeighting.entrySet()) {
+            String key = entry.getKey();
+            if (counter >= 1) {
+                dataSS[counter][0] = dots;
+            }
+            dataSS[counter][1] = key;
+            counter++;
+        }
+        dataSS[counter - 1][0] = easiest;
+
+        TableColumn column = null;
+        for (int n = 0; n < 2; n++) {
+            column = tableSS.getColumnModel().getColumn(n);
+            if (n == 1) {
+                column.setPreferredWidth(300); //third column is bigger
+            } else if (n == 2) {
+                column.setPreferredWidth(300);
+            } else {
+                column.setPreferredWidth(300);
+            }
+        }
+        tableSS.setEnabled(false);
+        tableSS.getTableHeader().setReorderingAllowed(false);
+    }
+
+    private static void WeakStudent() {
+        String hardest = "Hardest";
+        String easiest = "Easiest";
+        String dots = "       :    ";
+        int counter = 0;
+        dataWS[0][0] = hardest;
+        for (Map.Entry<String, Integer> entry : Weight.finalWeakWeight.entrySet()) {
+            String key = entry.getKey();
+            if (counter >= 1) {
+                dataWS[counter][0] = dots;
+            }
+            dataWS[counter][1] = key;
+            counter++;
+        }
+        dataWS[counter - 1][0] = easiest;
+
+        TableColumn column = null;
+        for (int n = 0; n < 2; n++) {
+            column = tableWS.getColumnModel().getColumn(n);
+            if (n == 1) {
+                column.setPreferredWidth(300); //third column is bigger
+            } else if (n == 2) {
+                column.setPreferredWidth(300);
+            } else {
+                column.setPreferredWidth(300);
+            }
+        }
+        tableWS.setEnabled(false);
+        tableWS.getTableHeader().setReorderingAllowed(false);
+    }
+}

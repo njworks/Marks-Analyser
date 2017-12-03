@@ -1,0 +1,83 @@
+/**
+ * Created by lrodrib 10/03/17
+ * Contributed by tramch 1502020
+ */
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Image;
+
+import java.io.*;
+
+public class Export {
+
+    private static final String pfdTitle = "group16.pdf";
+
+    public static void main(String[] args) {
+        pdfexport();
+    }
+
+    private static void pdfexport() {
+
+        Document frame = new Document();
+
+        try {
+
+            PdfWriter.getInstance(frame, new FileOutputStream(new File(pfdTitle)));
+            frame.open();
+            //ByteArrayOutputStream output = new ByteArrayOutputStream();
+            //File file = new File("src\\chart.png");
+            //ImageIO.write(Bargraph.bar1, "png", file);
+            //file.flush();
+            //file.close();
+            Image image = Image.getInstance("src\\ChartImages\\chart.png");
+            Image image2 = Image.getInstance("src\\ChartImages\\chart2.png");
+            Image image3 = Image.getInstance("src\\ChartImages\\chart3.png");
+            Image image4 = Image.getInstance("src\\ChartImages\\chart4.png");
+            Image image5 = Image.getInstance("src\\ChartImages\\chart5.png");
+            Image image6 = Image.getInstance("src\\ChartImages\\chart6.png");
+            //Image image = Image.getInstance(file);
+
+
+
+            //open
+
+            frame.add(image);
+            frame.add(image2);
+            frame.add(image3);
+            frame.add(image4);
+            frame.add(image5);
+            frame.add(image6);
+            //frame.newPage();
+//            PDFTitle p = new PDFTitle();
+//            p.add("Group 16 PDF Export");
+//            p.setAlignment(Element.ALIGN_CENTER);
+//
+//            document.add(p);
+//            BufferedImage bar1 = imgss()
+              //Image image1 = Image.getInstance(Bargraph.bar1);
+
+            //close
+            frame.close();
+
+        } catch (FileNotFoundException | DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+//    public static void imgss(JPanel panel, String name){
+//        BufferedImage picture = new BufferedImage(panel.getSize().width, panel.getSize().height,BufferedImage.TYPE_INT_RGB);
+//        panel.paint(picture.createGraphics());
+//        File filename = new File(name);
+//            try {
+//            filename.createNewFile();
+//            ImageIO.write(picture, "png", filename);
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+}
